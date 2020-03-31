@@ -10175,9 +10175,9 @@
 			],
 			"animations": [
 				{
-					"name": "Swing",
+					"name": "lee",
 					"fps": 60,
-					"duration": 5.5,
+					"duration": 8,
 					"isLooping": true,
 					"keyed": [
 						{
@@ -10308,32 +10308,56 @@
 								[
 									{
 										"time": 0,
-										"interpolatorType": 0,
+										"interpolatorType": 2,
+										"cubicX1": 0.42,
+										"cubicY1": 0,
+										"cubicX2": 0.58,
+										"cubicY2": 1,
 										"value": 0
 									},
 									{
 										"time": 2,
-										"interpolatorType": 0,
+										"interpolatorType": 2,
+										"cubicX1": 0.42,
+										"cubicY1": 0,
+										"cubicX2": 0.58,
+										"cubicY2": 1,
 										"value": 0.4084070449666734
 									},
 									{
 										"time": 4.033333333333333,
-										"interpolatorType": 0,
+										"interpolatorType": 2,
+										"cubicX1": 0.42,
+										"cubicY1": 0,
+										"cubicX2": 0.58,
+										"cubicY2": 1,
 										"value": 0
 									},
 									{
 										"time": 5.933333333333334,
-										"interpolatorType": 0,
+										"interpolatorType": 2,
+										"cubicX1": 0.42,
+										"cubicY1": 0,
+										"cubicX2": 0.58,
+										"cubicY2": 1,
 										"value": 0.4084070449666734
 									},
 									{
 										"time": 8.033333333333333,
-										"interpolatorType": 0,
+										"interpolatorType": 2,
+										"cubicX1": 0.42,
+										"cubicY1": 0,
+										"cubicX2": 0.58,
+										"cubicY2": 1,
 										"value": 0
 									},
 									{
 										"time": 10,
-										"interpolatorType": 0,
+										"interpolatorType": 2,
+										"cubicX1": 0.42,
+										"cubicY1": 0,
+										"cubicX2": 0.58,
+										"cubicY2": 1,
 										"value": 0
 									}
 								]

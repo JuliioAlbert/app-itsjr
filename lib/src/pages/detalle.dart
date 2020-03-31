@@ -2,7 +2,7 @@ import 'package:animate_do/animate_do.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:tecmilibro/src/models/libro_model.dart';
-import 'package:tecmilibro/src/widget/FadeAnimation.dart';
+
 
 class LibroADetalle extends StatefulWidget {
   @override
@@ -38,7 +38,6 @@ class _LibroADetalleState extends State<LibroADetalle>
       crossAxisAlignment: CrossAxisAlignment.start,
       children: <Widget>[
         makePage(
-          page: libro.uniqueId,
           libro: libro,
           title: libro.titulo,
           description: libro.descripcion,
@@ -53,7 +52,7 @@ class _LibroADetalleState extends State<LibroADetalle>
   makePage({
     title,
     description,
-    page,
+   
     clasificacion,
     Libro libro,
     BuildContext context,
@@ -71,29 +70,28 @@ class _LibroADetalleState extends State<LibroADetalle>
         decoration: BoxDecoration(
             gradient: LinearGradient(begin: Alignment.bottomRight, stops: [
           0.9,
-          1
+          25
         ], colors: [
           Colors.black.withOpacity(.9),
-          Colors.black.withOpacity(.5),
+          Colors.black.withOpacity(.6),
         ])),
         child: Padding(
-            padding: EdgeInsets.all(10),
+            padding: EdgeInsets.only(bottom: 0, right: 15, left: 15),
             child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
+                crossAxisAlignment: CrossAxisAlignment.center,
                 children: <Widget>[
                   SizedBox(
-                    height: size.height *.7,
+                    height: size.height *.70,
                   ),
                   Column(
                       mainAxisAlignment: MainAxisAlignment.end,
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: <Widget>[
                         Container(
-                          height: 50,
                             width: double.infinity,
                             child:
-                                  BounceInDown(
-                                    delay: Duration(seconds: 1),
+                                  ElasticInDown(
+                                    delay: Duration(milliseconds: 200),
                                     child: Text(
                                       title,
                                       style: TextStyle(
@@ -104,8 +102,10 @@ class _LibroADetalleState extends State<LibroADetalle>
                                     ),
                                   ),
                                 ),
-                        BounceInDown(
-                          delay: Duration(seconds: 2),
+                                SizedBox(height: 15,),
+                        ElasticInDown(
+                          delay: Duration(milliseconds: 700),
+                          
                           child: Row(
                             children: <Widget>[
                               Container(
@@ -158,8 +158,8 @@ class _LibroADetalleState extends State<LibroADetalle>
                         SizedBox(
                           height: 20,
                         ),
-                        BounceInDown(
-                          delay: Duration(seconds: 3),
+                        ElasticInDown(
+                          delay: Duration(milliseconds: 1200),
                           child: Padding(
                             padding: const EdgeInsets.only(right: 10),
                             child: Row(
@@ -196,8 +196,8 @@ class _LibroADetalleState extends State<LibroADetalle>
                           ),
                         ),
                           SizedBox(height: 15,),
-                          BounceInDown(
-                          delay: Duration(seconds: 3),
+                          ElasticInDown(
+                            delay: Duration(milliseconds: 1600),
                           child: Padding(
                             padding: const EdgeInsets.only(right: 20),
                             child: Row(
@@ -235,23 +235,27 @@ class _LibroADetalleState extends State<LibroADetalle>
                         ),
                         
                         Container(
-
                           width: double.infinity,
-                          child: BounceInDown(
-                            delay: Duration(seconds: 4),
+                          child: ElasticInDown(
+                            delay: Duration(milliseconds: 2000),
                             child: Padding(
                               padding: EdgeInsets.all(1),
                               child: Text(
                                 description,
                                 style: TextStyle(
                                     color: Colors.white,
-                                    height: 1.9,
+                                    height: 2.2,
                                     fontSize: 15,
                                     fontWeight: FontWeight.w500),
                               ),
                             ),
                           ),
-                        )
+                        ),
+                        Container(
+                          width: double.infinity,
+                          height: 70
+                        ),
+                        
                       ]),
                 ])),
       ),

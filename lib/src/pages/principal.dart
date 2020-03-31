@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 
 import 'package:tecmilibro/src/pages/categorias_page.dart';
 import 'package:tecmilibro/src/pages/home_page.dart';
-
+import 'package:tecmilibro/src/widget/app_bar.dart';
 
 class PrincipalPage extends StatefulWidget {
   @override
@@ -12,24 +12,22 @@ class PrincipalPage extends StatefulWidget {
 }
 
 class _PrincipalPageState extends State<PrincipalPage> {
-  
   GlobalKey _bottomNavigationKey = GlobalKey();
   int _page = 0;
   @override
-
   Widget build(BuildContext context) {
     return Scaffold(
         bottomNavigationBar: CurvedNavigationBar(
           color: Color.fromRGBO(12, 45, 108, 1.0),
-          backgroundColor: Colors.white,
+          backgroundColor: Color.fromRGBO(232, 236, 236, 1),
           key: _bottomNavigationKey,
-            items: <Widget>[  
+          items: <Widget>[
             JelloIn(
               delay: Duration(milliseconds: 1000),
               child: Icon(
                 Icons.keyboard_arrow_up,
                 size: 30,
-                color: Colors.white,
+                color: Color.fromRGBO(232, 236, 236, 1),
               ),
             ),
             JelloIn(
@@ -37,7 +35,7 @@ class _PrincipalPageState extends State<PrincipalPage> {
               child: Icon(
                 Icons.computer,
                 size: 30,
-                color: Colors.white,
+                color: Color.fromRGBO(232, 236, 236, 1),
               ),
             ),
           ],

@@ -19,13 +19,14 @@ class HomePage extends StatelessWidget {
 
     librosProvider.getArea(area);
     return Scaffold(
+      backgroundColor:  Color.fromRGBO(232, 236, 236, 1),
         body: SingleChildScrollView(
             child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: <Widget>[
           BounceInDown(
             child: IconHeader(
-                icon: FontAwesomeIcons.procedures,
+                icon:   FontAwesomeIcons.laptopCode,
                 titulo: area,
                 color1: Color.fromRGBO(12, 45, 108, 1.0),
                 color2: Color.fromRGBO(12, 45, 108, 1.0)),

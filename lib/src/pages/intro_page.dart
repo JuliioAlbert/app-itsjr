@@ -1,91 +1,239 @@
 import 'package:animate_do/animate_do.dart';
-import 'package:flare_flutter/flare_actor.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_neumorphic/flutter_neumorphic.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:tecmilibro/src/widget/FadeAnimation.dart';
+import 'package:nima/nima_actor.dart';
 import 'package:tecmilibro/src/widget/fondo_circular.dart';
+
 class IntroPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-     final size = MediaQuery.of(context).size;
-    return Scaffold(
-      body: Container(
-        width: double.infinity,
-        child: Stack(
-          children: <Widget>[
-            Container(),
-            FondoCircular(),
-            BounceInDown(
-              child: Container(
-                  height: size.height * 0.600,
-                  width: double.infinity,
-                  child: Center(
-                      child: FlareActor("assets/welcome.flr",
-                          alignment: Alignment.center,
-                          fit: BoxFit.contain,
-                          animation: "animation"))),
+    final size = MediaQuery.of(context).size;
+    if (size.width < 800) {
+       return Scaffold(
+        body: vertical(context),
+      );
+    } else {
+      return Scaffold(
+        body: horizontal(context),
+      );
+    }
+  }
+
+  vertical(BuildContext context) {
+    final size = MediaQuery.of(context).size;
+    return Container(
+      color: Color.fromRGBO(232, 236, 236, 1),
+      width: double.infinity,
+      child: Stack(
+        children: <Widget>[
+          FondoCircular(),
+          Positioned(
+            left: 15,
+            child: Container(
+              width: size.width * 1,
+              height: size.height * .55,
+              child: NimaActor(
+                "assets/New/Newton.nma",
+                animation: "Idle",
+                alignment: Alignment.center,
+                fit: BoxFit.contain,
+              ),
             ),
-            SizedBox(
-              height: size.height * 0.020,
+          ),
+          Positioned(
+              bottom: 54,
+              left: -6,
+              child: ElasticInRight(
+                delay: Duration(seconds: 1),
+                child: Container(
+                    width: size.width * .7,
+                    height: size.height * .6,
+                    child: Image.asset(
+                      'assets/Logo.png',
+                    )),
+              )),
+          SizedBox(
+            height: size.height * 0.030,
+          ),
+          Container(
+            padding: EdgeInsets.only(top: size.height * 0.72),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.center,
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              children: <Widget>[
+                ElasticInRight(
+                    delay: Duration(milliseconds: 1200),
+                    child: Text(
+                      "Centro De Informacion!",
+                      style: TextStyle(
+                        color: Colors.black,
+                        fontSize: 33,
+                        fontStyle: FontStyle.italic,
+                      ),
+                    )),
+                ElasticInRight(
+                  delay: Duration(milliseconds: 1500),
+                  child: Spin(
+                    delay: Duration(seconds: 2),
+                    child: Center(
+                      child: FaIcon(
+                        FontAwesomeIcons.book,
+                        size: 40,
+                        color: Color.fromRGBO(12, 45, 108, 1.0),
+                      ),
+                    ),
+                  ),
+                ),
+                SizedBox(
+                  height: size.height * 0.01,
+                ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceAround,
+                  children: <Widget>[
+                    FadeInDown(
+                      delay: Duration(milliseconds: 1800),
+                      child: Swing(
+                        delay: Duration(seconds: 2),
+                        child: Container(
+                          width: size.width * .20,
+                          height: size.height * 0.10,
+                          child: NeumorphicButton(
+                            boxShape: NeumorphicBoxShape.circle(),
+                            onClick: () {
+                              Navigator.pushReplacementNamed(
+                                  context, 'principal');
+                            },
+                            style: NeumorphicStyle(
+                                intensity: 1.0,
+                                depth: 20,
+                                surfaceIntensity: 0,
+                                shape: NeumorphicShape.concave,
+                                color: Color.fromRGBO(12, 45, 108, 1.0)),
+                            child: Center(
+                              child: FaIcon(
+                                FontAwesomeIcons.chevronCircleRight,
+                                size: 40,
+                                color: Color.fromRGBO(232, 236, 236, 1),
+                              ),
+                            ),
+                          ),
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+                SizedBox(
+                  height: size.height * .03,
+                )
+              ],
             ),
-            Container(
-              padding: EdgeInsets.only(top: size.height * 0.550),
+          ),
+        ],
+      ),
+    );
+  }
+
+  horizontal(BuildContext context) {
+    final size = MediaQuery.of(context).size;
+    return Container(
+      color: Color.fromRGBO(232, 236, 236, 1),
+      width: double.infinity,
+      child: Stack(
+        children: <Widget>[
+          FondoCircular(),
+          Positioned(
+            right: -30,
+            bottom: 5,
+            child: Container(
+              width: size.width * .51,
+              height: size.height *1.20,
+              child: NimaActor(
+                "assets/New/Newton.nma",
+                animation: "Idle",
+                alignment: Alignment.centerRight,
+                fit: BoxFit.cover,
+              ),
+            ),
+          ),
+          Positioned(
+             top: -18,
+              left: -110,
+              child: ElasticInRight(
+                delay: Duration(seconds: 1),
+                child: Container(
+                    width: size.width * .7,
+                    height: size.height * .6,
+                    child: Image.asset(
+                      'assets/Logo.png',
+                    )),
+              )),
+          SizedBox(
+            height: size.height * 0.030,
+          ),
+          Positioned(
+            left: 60,
+            bottom: 0,
+            child: Container(
+              padding: EdgeInsets.only(top: size.height * 0.72),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.center,
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: <Widget>[
-                  FadeAnimation(
-                      3.2,
-                      Text(
-                        "Bienvenido!",
-                        style: TextStyle(color: Colors.black, fontSize: 60),
+                  ElasticInRight(
+                      delay: Duration(milliseconds: 1200),
+                      child: Text(
+                        "Centro De Informacion!",
+                        style: TextStyle(
+                          color: Colors.black,
+                          fontSize: 33,
+                          fontStyle: FontStyle.italic,
+                        ),
                       )),
                   ElasticInRight(
-                    delay: Duration(seconds: 3),
-                    child: Center(
-                      child: ZoomOut(
-                        from: 80,
+                    delay: Duration(milliseconds: 1500),
+                    child: Spin(
+                      delay: Duration(seconds: 2),
+                      child: Center(
                         child: FaIcon(
                           FontAwesomeIcons.book,
                           size: 40,
-                          color: Colors.black,
+                          color: Color.fromRGBO(12, 45, 108, 1.0),
                         ),
                       ),
                     ),
                   ),
-                  FadeAnimation(
-                      3.2,
-                      Text(
-                        "Centro de Informacion \n ITSJR!",
-                        style: TextStyle(
-                            color: Colors.black.withOpacity(.8),
-                            height: 1.2,
-                            fontSize: 25),
-                      )),
                   SizedBox(
-                    height: size.height * 0.060,
+                    height: size.height * 0.06,
                   ),
                   Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    mainAxisAlignment: MainAxisAlignment.spaceAround,
                     children: <Widget>[
                       FadeInDown(
-                        delay: Duration(seconds: 3),
+                        delay: Duration(milliseconds: 1800),
                         child: Swing(
-                          delay: Duration(seconds: 4),
+                          delay: Duration(seconds: 2),
                           child: Container(
-                            width: size.width * .20,
-                            height: size.height * 0.10,
-                            child: FloatingActionButton(
-                              onPressed: () {
-                               
-                                  Navigator.pushReplacementNamed(
-                                      context, 'principal');
-                              
+                            width: size.width * .12,
+                            height: size.height * 0.2,
+                            child: NeumorphicButton(
+                              boxShape: NeumorphicBoxShape.circle(),
+                              onClick: () {
+                               Navigator.pushReplacementNamed(
+                                    context, 'principal'); 
                               },
-                              backgroundColor: Color.fromRGBO(12, 45, 108, 1.0),
-                              child: FaIcon(
-                                FontAwesomeIcons.chevronCircleRight,
-                                size: 40,
+                              style: NeumorphicStyle(
+                                  intensity: 1.0,
+                                  depth: 20,
+                                  surfaceIntensity: 0,
+                                  shape: NeumorphicShape.concave,
+                                  color: Color.fromRGBO(12, 45, 108, 1.0)),
+                              child: Center(
+                                child: FaIcon(
+                                  FontAwesomeIcons.chevronCircleRight,
+                                  size: 40,
+                                  color: Color.fromRGBO(232, 236, 236, 1),
+                                ),
                               ),
                             ),
                           ),
@@ -99,10 +247,9 @@ class IntroPage extends StatelessWidget {
                 ],
               ),
             ),
-          ],
-        ),
+          ),
+        ],
       ),
     );
   }
 }
-

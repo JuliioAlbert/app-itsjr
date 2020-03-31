@@ -19,6 +19,7 @@ class CategoriasPage extends StatelessWidget {
     final size = MediaQuery.of(context).size;
     librosProvider.getArea(area.area);
     return Scaffold(
+      backgroundColor:  Color.fromRGBO(232, 236, 236, 1),
       
         body: SingleChildScrollView(
             child: Column(

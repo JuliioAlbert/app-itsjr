@@ -32,6 +32,9 @@ dependencies:
   font_awesome_flutter:
   curved_navigation_bar: ^0.3.2
   animate_do: ^1.6.3
+  nima:
+  flutter_neumorphic: ^1.0.1
+
 
 
 dev_dependencies:
@@ -42,7 +45,7 @@ dev_dependencies:
 flutter_icons:
   android: "launcher_icon" 
   ios: true
-  image_path: "assets/icono.png"
+  image_path: "assets/Logo.png"
 
   
 
@@ -61,6 +64,9 @@ flutter:
   # To add assets to your application, add an assets section, like this:
   assets:
    - assets/
+   - assets/New/
+   - assets/Robot/
+
   #  - images/a_dot_ham.jpeg
 
   # An image asset can refer to one or more resolution-specific "variants", see

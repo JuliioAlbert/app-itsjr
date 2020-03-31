@@ -12,8 +12,8 @@ class Libros {
 
 class Libro {
     String    uniqueId;
+  
     
-    int       id;
     int       numeroadquisicion;
     String    titulo;
     String    autor;
@@ -32,7 +32,7 @@ class Libro {
     int       cantidad;
 
     Libro({
-        this.id,
+        
         this.numeroadquisicion,
         this.titulo,
         this.autor,
@@ -52,7 +52,7 @@ class Libro {
     });
 
      Libro.fromJsonMap(Map<String, dynamic> json) {
-        id                    = json['id'];
+        
         numeroadquisicion     = json['numeroadquisicion'];
         titulo                = json['titulo'];
         autor                 = json['autor'];
